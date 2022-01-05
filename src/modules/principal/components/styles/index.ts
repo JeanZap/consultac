@@ -1,9 +1,7 @@
-import { Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styled from 'styled-components';
+import { Spacings } from '../../../../constants/Metrics';
 
-export const Logo = styled(Image)`
-  width: 100%;
-  height: 160px;
-  align-self: center;
-  resize-mode: contain;
+export const ContainerPrincipal = styled(SafeAreaView)`
+  padding: 0 ${Spacings.standardSpacing};
 `;

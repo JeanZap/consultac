@@ -1,17 +1,52 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Text, View } from 'react-native';
+import { ListedProcedure } from './ListedProcedure';
+import * as S from './styles';
 
-interface PrincipalProps {}
+export interface ListedProcedure {
+  title: string;
+  medic: string;
+  specialization: string;
+  crm: string;
+  ufCrm: string;
+  medicalClinic: string;
+  adress: string;
+  price: number;
+  priceOff: number;
+}
 
-export const Principal = ({}: PrincipalProps) => {
+interface PrincipalProps {
+  listedProcedures: ListedProcedure[];
+}
+
+export const Principal = ({ listedProcedures }: PrincipalProps) => {
   return (
-    <SafeAreaView>
-      <Text>asdfasfd</Text>
-      <Text>asdfasfd</Text>
-      <Text>asdfasfd</Text>
-      <Text>asdfasfd</Text>
-      <Text>asdfasfd</Text>
-    </SafeAreaView>
+    <S.ContainerPrincipal>
+      <View>
+        <Text>Filtro por nome</Text>
+        <Text>Filtro</Text>
+        <Text>Filtro</Text>
+      </View>
+      <View>
+        {listedProcedures.map(
+          (
+            { title, medic, specialization, crm, ufCrm, medicalClinic, price, priceOff },
+            index,
+          ) => (
+            <ListedProcedure
+              key={index}
+              title={title}
+              medic={medic}
+              specialization={specialization}
+              crm={crm}
+              ufCrm={ufCrm}
+              medicalClinic={medicalClinic}
+              price={price}
+              priceOff={priceOff}
+            />
+          ),
+        )}
+      </View>
+    </S.ContainerPrincipal>
   );
 };

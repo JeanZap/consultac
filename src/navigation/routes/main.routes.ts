@@ -1,3 +1,3 @@
 export enum MainRoutes {
-  Principal = 'Dashboard',
+  Principal = 'Principal',
 }
