@@ -5,23 +5,25 @@ import { Botao } from '../../../shared/BotaoPrimario/BotaoPrimario';
 import { CampoTexto } from '../../../shared/CampoTexto/CampoTexto';
 import * as S from './styles';
 
-interface LoginProps {
+interface AutenticacaoProps {
   usuario: string;
   senha: string;
   textoErro: string;
+  acessarDesativado: boolean;
   definirUsuario: (usuario: string) => void;
   definirSenha: (senha: string) => void;
   acessar: () => void;
 }
 
-export const Login = ({
+export const Autenticacao = ({
   usuario,
   senha,
   textoErro,
+  acessarDesativado,
   definirUsuario,
   definirSenha,
   acessar,
-}: LoginProps) => {
+}: AutenticacaoProps) => {
   const exibirTextoErro = !!textoErro;
   return (
     <SafeAreaView>
@@ -29,7 +31,7 @@ export const Login = ({
       <CampoTexto label="Usuario" valor={usuario} definirValor={definirUsuario} />
       <CampoTexto label="Senha" valor={senha} definirValor={definirSenha} />
       {exibirTextoErro && <S.Erro>{textoErro}</S.Erro>}
-      <Botao acessar={acessar} label="Acessar" />
+      <Botao acessar={acessar} label="Acessar" desativado={acessarDesativado} />
     </SafeAreaView>
   );
 };

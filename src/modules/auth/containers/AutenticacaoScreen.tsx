@@ -1,12 +1,14 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { MainRoutes } from '../../../navigation/routes/main.routes';
-import { Login } from '../components/Login';
+import { Autenticacao } from '../components/Autenticacao';
 
-export const LoginScreen = () => {
+export const AutenticacaoScreen = () => {
   const [usuario, setUsuario] = useState<string>('');
   const [senha, setSenha] = useState<string>('');
   const [textoErro, setTextoErro] = useState<string>('');
+
+  const acessarDesativado = senha.length < 8 || !usuario;
 
   const navigation = useNavigation();
 
@@ -29,10 +31,11 @@ export const LoginScreen = () => {
   };
 
   return (
-    <Login
+    <Autenticacao
       usuario={usuario}
       senha={senha}
       textoErro={textoErro}
+      acessarDesativado={acessarDesativado}
       definirUsuario={definirUsuario}
       definirSenha={definirSenha}
       acessar={acessar}

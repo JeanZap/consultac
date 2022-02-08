@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { CampoPesquisa } from '../../../shared/CampoPesquisa/CampoPesquisa';
 import { ListedProcedure } from './ListedProcedure';
 import * as S from './styles';
 
@@ -23,8 +24,9 @@ export const Principal = ({ listedProcedures }: PrincipalProps) => {
   return (
     <S.ContainerPrincipal>
       <View>
-        <Text>Filtro por nome</Text>
+        <CampoPesquisa />
         <Text>Filtro</Text>
+        {/* Pesquisar por: especilidade, local, rating, preco */}
         <Text>Filtro</Text>
       </View>
       <View>
@@ -44,8 +46,12 @@ export const Principal = ({ listedProcedures }: PrincipalProps) => {
               price={price}
               priceOff={priceOff}
             />
-          ),
-        )}
+            ),
+            )}
+            {/*
+            Ao clique:
+            Marcar consulta (incluir uma agenda com horarios disponiveis), valores, 
+            detalhes da clinica, detalhes do medico,*/}
       </View>
     </S.ContainerPrincipal>
   );

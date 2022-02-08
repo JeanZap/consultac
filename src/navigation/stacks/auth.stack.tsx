@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { LoginScreen } from '../../modules/auth/containers/LoginScreen';
+import { AutenticacaoScreen } from '../../modules/auth/containers/AutenticacaoScreen';
 import { PrincipalScreen } from '../../modules/principal/containers/PrincipalScreen';
 import { AuthRoutes } from '../routes/auth.routes';
 import { MainRoutes } from '../routes/main.routes';
@@ -11,7 +11,7 @@ export const AuthStack = () => {
   return (
     <AuthNavigator.Navigator initialRouteName={AuthRoutes.Login}>
       <AuthNavigator.Screen
-        component={LoginScreen}
+        component={AutenticacaoScreen}
         name={AuthRoutes.Login}
         options={{ headerShown: false }}
       />

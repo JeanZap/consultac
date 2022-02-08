@@ -1,4 +1,4 @@
-import { TextInput } from 'react-native';
+import { Text, TextInput } from 'react-native';
 import styled from 'styled-components';
 
 export const Input = styled(TextInput)`
@@ -10,7 +10,7 @@ export const Input = styled(TextInput)`
   color: #444444;
 `;
 
-export const Texto = styled(TextInput)`
+export const Texto = styled(Text)`
   margin: 16px 16px 4px 16px;
   font-size: 16px;
   color: #444444;
