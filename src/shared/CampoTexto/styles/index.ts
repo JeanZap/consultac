@@ -1,5 +1,6 @@
 import { Text, TextInput } from 'react-native';
 import styled from 'styled-components';
+import { Colors } from '../../../constants/Colors';
 
 export const Input = styled(TextInput)`
   padding: 16px;
@@ -8,6 +9,7 @@ export const Input = styled(TextInput)`
   border: 1px #b2b2b2 solid;
   font-size: 16px;
   color: #444444;
+  background-color: ${Colors.white};
 `;
 
 export const Texto = styled(Text)`

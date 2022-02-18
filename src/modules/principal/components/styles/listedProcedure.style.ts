@@ -1,9 +1,9 @@
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import styled from 'styled-components';
 import { Colors } from '../../../../constants/Colors';
-import { Spacings as Spacings } from '../../../../constants/Metrics';
+import { Spacings } from '../../../../constants/Metrics';
 
-export const Container = styled(View)`
+export const Container = styled.View`
   border: 1px solid ${Colors.gray4};
   padding: ${Spacings.standardSpacing};
   margin: 0 0 ${Spacings.standardSpacing} 0;

@@ -1,27 +1,27 @@
 import React from 'react';
 import * as S from './styles/listedProcedure.style';
 
-interface ListedProcedureProps {
-  title: string;
-  medic: string;
-  specialization: string;
+interface ProcedimentoListadoProps {
+  titulo: string;
+  medico: string;
+  especializacao: string;
   crm: string;
   ufCrm: string;
-  medicalClinic: string;
-  price: number;
-  priceOff: number;
+  clinicaMedica: string;
+  preco: number;
+  descontoPreco: number;
 }
 
-export const ListedProcedure = ({
-  title,
-  medic,
-  specialization,
+export const ProcedimentoListado = ({
+  titulo: title,
+  medico: medic,
+  especializacao: specialization,
   crm,
   ufCrm,
-  medicalClinic,
-  price,
-  priceOff,
-}: ListedProcedureProps) => {
+  clinicaMedica: medicalClinic,
+  preco: price,
+  descontoPreco: priceOff,
+}: ProcedimentoListadoProps) => {
   return (
     <S.Container>
       <S.Title>{title}</S.Title>

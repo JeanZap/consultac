@@ -1,4 +1,3 @@
-import { View } from 'react-native';
 import styled from 'styled-components';
 import { Colors } from '../../../constants/Colors';
 
@@ -7,7 +6,7 @@ interface ContainerProps {
   $desativado: boolean;
 }
 
-export const ContainerBotao = styled(View)<ContainerProps>`
+export const ContainerBotao = styled.View<ContainerProps>`
   //TODO: secundario
   padding: 8px;
   margin: 16px 16px 0 16px;

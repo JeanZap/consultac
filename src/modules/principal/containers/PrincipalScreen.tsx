@@ -1,34 +1,38 @@
 import { useNavigation } from '@react-navigation/native';
+import { Principal, ProcedimentoListadoDTO } from '../components/Principal';
 import React from 'react';
-import { ListedProcedure, Principal } from '../components/Principal';
 
-const LISTED_PROCEDURE_MOCK: ListedProcedure[] = [
+const PROCEDIMENTO_LISTADO_MOCK: ProcedimentoListadoDTO[] = [
   {
-    title: 'Exame exemplo',
-    medic: 'Jean Pereira',
-    specialization: 'Ortopedista',
+    titulo: 'Exame exemplo',
+    medico: 'Jean Pereira',
+    especializacao: 'Ortopedista',
     crm: '69666',
     ufCrm: 'ES',
-    medicalClinic: 'Clinica Nostra',
-    adress: 'Rua sorocaba, N 03 Q 37, Marcilio de Noronha, Viana',
-    price: 65.56,
-    priceOff: 33,
+    clinicaMedica: 'Clinica Nostra',
+    endereco: 'Rua sorocaba, N 03 Q 37, Marcilio de Noronha, Viana',
+    preco: 65.56,
+    descontoPreco: 33,
   },
   {
-    title: 'Exame exemplo 2',
-    medic: 'Jean Pereira',
-    specialization: 'Ortopedista',
+    titulo: 'Exame exemplo 2',
+    medico: 'Jean Pereira',
+    especializacao: 'Ortopedista',
     crm: '69666',
     ufCrm: 'ES',
-    medicalClinic: 'Clinica Nostra',
-    adress: 'Rua sorocaba, N 03 Q 37, Marcilio de Noronha, Viana',
-    price: 65.56,
-    priceOff: 33,
+    clinicaMedica: 'Clinica Nostra',
+    endereco: 'Rua sorocaba, N 03 Q 37, Marcilio de Noronha, Viana',
+    preco: 65.56,
+    descontoPreco: 33,
   },
 ];
 
 export const PrincipalScreen = () => {
   const navigation = useNavigation();
 
-  return <Principal listedProcedures={LISTED_PROCEDURE_MOCK} />;
+  const pesquisar = () => {};
+
+  return (
+    <Principal procedimentosListados={PROCEDIMENTO_LISTADO_MOCK} pesquisar={pesquisar} />
+  );
 };

@@ -1,54 +1,85 @@
+import { Formik, FormikValues } from 'formik';
 import React from 'react';
 import { Text, View } from 'react-native';
 import { CampoPesquisa } from '../../../shared/CampoPesquisa/CampoPesquisa';
-import { ListedProcedure } from './ListedProcedure';
+import { ProcedimentoListado } from './ProcedimentoListado';
 import * as S from './styles';
 
-export interface ListedProcedure {
-  title: string;
-  medic: string;
-  specialization: string;
+//TODO: Mover dto
+export interface ProcedimentoListadoDTO {
+  titulo: string;
+  medico: string;
+  especializacao: string;
   crm: string;
   ufCrm: string;
-  medicalClinic: string;
-  adress: string;
-  price: number;
-  priceOff: number;
+  clinicaMedica: string;
+  endereco: string;
+  preco: number;
+  descontoPreco: number;
+}
+//TODO: Mover para diretorio adequado e nomear corretamente
+const initialValues = {
+  termoPesquisa: '',
+};
+
+export interface intervaloNumerico {
+  minimo: number;
+  maximo: number;
 }
 
 interface PrincipalProps {
-  listedProcedures: ListedProcedure[];
+  procedimentosListados: ProcedimentoListadoDTO[];
+  pesquisar: (values: FormikValues) => void;
 }
 
-export const Principal = ({ listedProcedures }: PrincipalProps) => {
+export const Principal = ({ procedimentosListados, pesquisar }: PrincipalProps) => {
   return (
     <S.ContainerPrincipal>
+      <Formik initialValues={initialValues} onSubmit={pesquisar}>
+        {(propriedadesFormik) => {
+          return (
+            <View>
+              <CampoPesquisa
+                {...propriedadesFormik}
+                nome="termoPesquisa"
+                valor={propriedadesFormik.values.termoPesquisa}
+              />
+              <Text>Filtro</Text>
+              {/* Pesquisar por: especilidade, local, rating, preco */}
+              <Text>Filtro</Text>
+            </View>
+          );
+        }}
+      </Formik>
       <View>
-        <CampoPesquisa />
-        <Text>Filtro</Text>
-        {/* Pesquisar por: especilidade, local, rating, preco */}
-        <Text>Filtro</Text>
-      </View>
-      <View>
-        {listedProcedures.map(
+        {procedimentosListados.map(
           (
-            { title, medic, specialization, crm, ufCrm, medicalClinic, price, priceOff },
-            index,
+            {
+              titulo,
+              medico,
+              especializacao,
+              crm,
+              ufCrm,
+              clinicaMedica,
+              preco,
+              descontoPreco,
+            },
+            indice,
           ) => (
-            <ListedProcedure
-              key={index}
-              title={title}
-              medic={medic}
-              specialization={specialization}
+            <ProcedimentoListado
+              key={indice}
+              titulo={titulo}
+              medico={medico}
+              especializacao={especializacao}
               crm={crm}
               ufCrm={ufCrm}
-              medicalClinic={medicalClinic}
-              price={price}
-              priceOff={priceOff}
+              clinicaMedica={clinicaMedica}
+              preco={preco}
+              descontoPreco={descontoPreco}
             />
-            ),
-            )}
-            {/*
+          ),
+        )}
+        {/*
             Ao clique:
             Marcar consulta (incluir uma agenda com horarios disponiveis), valores, 
             detalhes da clinica, detalhes do medico,*/}

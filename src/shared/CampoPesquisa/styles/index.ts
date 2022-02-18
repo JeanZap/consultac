@@ -1,9 +1,9 @@
-import { TextInput, View } from 'react-native';
+import { TextInput } from 'react-native';
 import styled from 'styled-components';
 import { Colors } from '../../../constants/Colors';
 import { Spacings } from '../../../constants/Metrics';
 
-export const Container = styled(View)`
+export const Container = styled.View`
   display: flex;
   flex-direction: row;
   border-radius: ${Spacings.tinySpacing};

@@ -29,7 +29,7 @@ export const Autenticacao = ({
     <SafeAreaView>
       <S.Logo source={Images.logo} />
       <CampoTexto label="Usuario" valor={usuario} definirValor={definirUsuario} />
-      <CampoTexto label="Senha" valor={senha} definirValor={definirSenha} />
+      <CampoTexto label="Senha" valor={senha} tipo="senha" definirValor={definirSenha} />
       {exibirTextoErro && <S.Erro>{textoErro}</S.Erro>}
       <Botao acessar={acessar} label="Acessar" desativado={acessarDesativado} />
     </SafeAreaView>
