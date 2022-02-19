@@ -18,9 +18,9 @@ export const AutenticacaoScreen = () => {
 
   const acessar = () => {
     setTextoErro('');
-    const usuarioSenhaValidos = usuario && senha && senha.length > 8;
+    const usuarioSenhaValidos = usuario && senha && senha.length >= 8;
     const usuarioOuSenhaVazios = !usuario || !senha;
-    const senhaCurta = senha.length <= 8;
+    const senhaCurta = senha.length < 8;
     if (usuarioOuSenhaVazios) {
       setTextoErro('Preencha usuario e senha.');
     } else if (senhaCurta) {

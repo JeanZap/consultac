@@ -1,37 +1,34 @@
 import React from 'react';
+import { IntervaloNumerico } from '../../../models/dtos/IntervaloNumerico';
+import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
 import * as S from './styles/listedProcedure.style';
 
 interface ProcedimentoListadoProps {
-  titulo: string;
-  medico: string;
-  especializacao: string;
-  crm: string;
-  ufCrm: string;
-  clinicaMedica: string;
-  preco: number;
-  descontoPreco: number;
+  procedimento: ProcedimentoListadoDTO;
 }
 
 export const ProcedimentoListado = ({
-  titulo: title,
-  medico: medic,
-  especializacao: specialization,
-  crm,
-  ufCrm,
-  clinicaMedica: medicalClinic,
-  preco: price,
-  descontoPreco: priceOff,
+  procedimento: {
+    titulo,
+    medico,
+    especializacao,
+    crm,
+    ufCrm,
+    clinicaMedica,
+    preco,
+    descontoPreco,
+  },
 }: ProcedimentoListadoProps) => {
   return (
     <S.Container>
-      <S.Title>{title}</S.Title>
-      <S.Clinic>{medicalClinic}</S.Clinic>
-      <S.MedicName>{medic}</S.MedicName>
+      <S.Title>{titulo}</S.Title>
+      <S.Clinic>{clinicaMedica}</S.Clinic>
+      <S.MedicName>{medico}</S.MedicName>
       <S.MedicName>
-        R${price} {priceOff && `- ${priceOff}% de desconto`}
+        R${preco} {descontoPreco && `- ${descontoPreco}% de desconto`}
       </S.MedicName>
       <S.Specialization>
-        {specialization} {crm}-{ufCrm}
+        {especializacao} {crm}-{ufCrm}
       </S.Specialization>
     </S.Container>
   );

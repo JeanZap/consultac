@@ -1,6 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
-import { Principal, ProcedimentoListadoDTO } from '../components/Principal';
+import { Principal } from '../components/Principal';
 import React from 'react';
+import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
+import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
 
 const PROCEDIMENTO_LISTADO_MOCK: ProcedimentoListadoDTO[] = [
   {
@@ -30,7 +32,9 @@ const PROCEDIMENTO_LISTADO_MOCK: ProcedimentoListadoDTO[] = [
 export const PrincipalScreen = () => {
   const navigation = useNavigation();
 
-  const pesquisar = () => {};
+  const pesquisar = (valoresPesquisa: PesquisaProcedimentosDto) => {
+    console.log(valoresPesquisa);
+  };
 
   return (
     <Principal procedimentosListados={PROCEDIMENTO_LISTADO_MOCK} pesquisar={pesquisar} />

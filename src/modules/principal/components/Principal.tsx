@@ -1,84 +1,24 @@
-import { Formik, FormikValues } from 'formik';
-import React from 'react';
-import { Text, View } from 'react-native';
-import { CampoPesquisa } from '../../../shared/CampoPesquisa/CampoPesquisa';
+import { View } from 'react-native';
+import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
+import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
+import { PesquisaProcedimentos } from './PesquisaProcedimentos';
 import { ProcedimentoListado } from './ProcedimentoListado';
 import * as S from './styles';
-
-//TODO: Mover dto
-export interface ProcedimentoListadoDTO {
-  titulo: string;
-  medico: string;
-  especializacao: string;
-  crm: string;
-  ufCrm: string;
-  clinicaMedica: string;
-  endereco: string;
-  preco: number;
-  descontoPreco: number;
-}
-//TODO: Mover para diretorio adequado e nomear corretamente
-const initialValues = {
-  termoPesquisa: '',
-};
-
-export interface intervaloNumerico {
-  minimo: number;
-  maximo: number;
-}
+import React from 'react';
 
 interface PrincipalProps {
   procedimentosListados: ProcedimentoListadoDTO[];
-  pesquisar: (values: FormikValues) => void;
+  pesquisar: (valoresPesquisa: PesquisaProcedimentosDto) => void;
 }
 
 export const Principal = ({ procedimentosListados, pesquisar }: PrincipalProps) => {
   return (
     <S.ContainerPrincipal>
-      <Formik initialValues={initialValues} onSubmit={pesquisar}>
-        {(propriedadesFormik) => {
-          return (
-            <View>
-              <CampoPesquisa
-                {...propriedadesFormik}
-                nome="termoPesquisa"
-                valor={propriedadesFormik.values.termoPesquisa}
-              />
-              <Text>Filtro</Text>
-              {/* Pesquisar por: especilidade, local, rating, preco */}
-              <Text>Filtro</Text>
-            </View>
-          );
-        }}
-      </Formik>
+      <PesquisaProcedimentos pesquisar={pesquisar} />
       <View>
-        {procedimentosListados.map(
-          (
-            {
-              titulo,
-              medico,
-              especializacao,
-              crm,
-              ufCrm,
-              clinicaMedica,
-              preco,
-              descontoPreco,
-            },
-            indice,
-          ) => (
-            <ProcedimentoListado
-              key={indice}
-              titulo={titulo}
-              medico={medico}
-              especializacao={especializacao}
-              crm={crm}
-              ufCrm={ufCrm}
-              clinicaMedica={clinicaMedica}
-              preco={preco}
-              descontoPreco={descontoPreco}
-            />
-          ),
-        )}
+        {procedimentosListados.map((procedimento, indice) => (
+          <ProcedimentoListado key={indice} procedimento={procedimento} />
+        ))}
         {/*
             Ao clique:
             Marcar consulta (incluir uma agenda com horarios disponiveis), valores, 
