@@ -10,6 +10,7 @@ export const Container = styled.View`
   border-radius: ${Spacings.tinySpacing};
   border: 1px solid ${Colors.gray4};
   padding: ${Spacings.tinySpacing} ${Spacings.standardSpacing};
+  margin-bottom: ${Spacings.tinySpacing};
 `;
 
 export const CampoTexto = styled(TextInput)`

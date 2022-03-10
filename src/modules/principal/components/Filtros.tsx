@@ -1,24 +1,31 @@
 import { FormikProps } from 'formik';
 import { Text } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
 import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
-import { especialidadesMedicas as ESPECIALIDADES_MEDICAS } from '../../../shared/constants';
+import { CIDADES, ESPECIALIDADES_MEDICAS, ESTADOS } from '../../../shared/constants';
 import { mascaraReal } from '../../../shared/functions';
+import { CampoPreco } from './CampoPreco';
 import * as S from './styles';
 import React from 'react';
+import { CampoTexto } from './CampoTexto';
+import { Picker } from '@react-native-community/picker';
+import { ItemValue } from '@react-native-community/picker/typings/Picker';
 
 interface FiltrosProps extends FormikProps<PesquisaProcedimentosDto> {}
 
 export const Filtros = ({
   values: {
-    precos: { minimo, maximo },
-    avaliacao,
+    precos: { minimo: minimoPreco, maximo: maximoPreco },
+    avaliacao: { minimo: minimoAvaliacao, maximo: maximoAvaliacao },
+    especialidade,
+    estado,
+    cidade,
   },
   setFieldValue,
 }: FiltrosProps) => {
-  const precoMinimo = minimo && mascaraReal(minimo);
-  const precoMaximo = maximo && mascaraReal(maximo);
-  const avaliacaoTratada = avaliacao && mascaraReal(avaliacao);
+  const precoMinimo = minimoPreco && mascaraReal(minimoPreco);
+  const precoMaximo = maximoPreco && mascaraReal(maximoPreco);
+  const avaliacaoMinimo = minimoAvaliacao && mascaraReal(minimoAvaliacao);
+  const avaliacaoMaximo = maximoAvaliacao && mascaraReal(maximoAvaliacao);
 
   const definirValorCampo = (nome: string) => (evento: any) => {
     const valor = evento.nativeEvent.text;
@@ -30,38 +37,71 @@ export const Filtros = ({
     setFieldValue(nome, valor);
   };
 
+  const definirEspecialidade = (especialidade: ItemValue) => {
+    setFieldValue('especialidade', especialidade);
+  };
+
+  const definirEstado = (estado: ItemValue) => {
+    setFieldValue('estado', estado);
+  };
+
+  const definirCidade = (cidade: ItemValue) => {
+    setFieldValue('cidade', cidade);
+  };
+
   return (
     <>
-      {ESPECIALIDADES_MEDICAS.map(({ label }) => {
-        return <Text>{label}</Text>;
-      })}
-      <Text>cidade</Text>
-      <Text>estado</Text>
-      <S.ContainerPrecos>
-        <S.ContainerPreco $adicionarMargemDireita>
-          <TextInput
-            keyboardType="numeric"
-            value={precoMinimo}
-            onChange={definirPreco('precos.minimo')}
-            placeholder="Preco mínimo"
-          />
-        </S.ContainerPreco>
-        <S.ContainerPreco>
-          <TextInput
-            keyboardType="numeric"
-            value={precoMaximo}
-            onChange={definirPreco('precos.maximo')}
-            placeholder="Preco máximo"
-          />
-        </S.ContainerPreco>
-      </S.ContainerPrecos>
-      <S.ContainerPreco>
-        <TextInput
-          value={avaliacaoTratada}
-          onChange={definirValorCampo('rating')}
-          placeholder="Avaliação"
+      <Text>Especialidade</Text>
+      <Picker
+        mode="dropdown"
+        selectedValue={especialidade}
+        onValueChange={definirEspecialidade}>
+        {ESPECIALIDADES_MEDICAS.map(({ label }) => (
+          <Picker.Item key={label} label={label} value={label} />
+        ))}
+      </Picker>
+
+      <Text>Estado</Text>
+      <Picker mode="dropdown" selectedValue={estado} onValueChange={definirEstado}>
+        {ESTADOS.map(({ label }) => (
+          <Picker.Item key={label} label={label} value={label} />
+        ))}
+      </Picker>
+
+      <Text>Cidade</Text>
+      <Picker mode="dropdown" selectedValue={cidade} onValueChange={definirCidade}>
+        {CIDADES.map(({ label }) => (
+          <Picker.Item key={label} label={label} value={label} />
+        ))}
+      </Picker>
+      <S.ContainerCampos>
+        <CampoTexto
+          valor={avaliacaoMinimo}
+          nome={'avaliacao.minimo'}
+          placeHolder={'Avaliação mínima'}
+          definirValor={definirValorCampo}
         />
-      </S.ContainerPreco>
+        <CampoTexto
+          valor={avaliacaoMaximo}
+          nome={'avaliacao.maximo'}
+          placeHolder={'Avaliação máximo'}
+          definirValor={definirValorCampo}
+        />
+      </S.ContainerCampos>
+      <S.ContainerCampos>
+        <CampoPreco
+          valor={precoMinimo}
+          nome={'precos.minimo'}
+          definirPreco={definirPreco}
+          placeHolder={'Preço mínimo'}
+        />
+        <CampoPreco
+          valor={precoMaximo}
+          nome={'precos.maximo'}
+          definirPreco={definirPreco}
+          placeHolder={'Preço máximo'}
+        />
+      </S.ContainerCampos>
     </>
   );
 };

@@ -9,9 +9,15 @@ import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/Pes
 interface CampoPesquisaProps extends FormikProps<PesquisaProcedimentosDto> {
   nome: string;
   valor: string;
+  submeterFormulario: () => void;
 }
 
-export const CampoPesquisa = ({ nome, valor, setFieldValue }: CampoPesquisaProps) => {
+export const CampoPesquisa = ({
+  nome,
+  valor,
+  submeterFormulario,
+  setFieldValue,
+}: CampoPesquisaProps) => {
   //TODO: tipar corretamente
   const definirTermoPesquisa = (evento: any) => {
     const valor = evento.nativeEvent.text;
@@ -27,10 +33,8 @@ export const CampoPesquisa = ({ nome, valor, setFieldValue }: CampoPesquisaProps
           onChange={definirTermoPesquisa}
           placeholder="Pesquisar..."
         />
-        <TouchableHighlight>
-          <View>
-            <Icon name="account-plus-outline" size={24} color={'#000000'} />
-          </View>
+        <TouchableHighlight onPress={submeterFormulario}>
+          <Icon name="magnify" size={24} color={'#000000'} />
         </TouchableHighlight>
       </S.Container>
       <MensagemErro nome={nome} />

@@ -5,6 +5,6 @@ export interface PesquisaProcedimentosDto {
   especialidade: string;
   estado: string;
   cidade: string;
-  avaliacao: number;
+  avaliacao: IntervaloNumerico;
   precos: IntervaloNumerico;
 }

@@ -1,11 +1,11 @@
 import { Formik } from 'formik';
 import { View } from 'react-native';
 import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
-import { Botao } from '../../../shared/BotaoPrimario/BotaoPrimario';
 import { CampoPesquisa } from '../../../shared/components/CampoPesquisa/CampoPesquisa';
 import React from 'react';
 import { Filtros } from './Filtros';
 import { valoresIniciaisPesquisaProcedimentos } from '../../../shared/constants';
+import { MenuColapsavel } from '../../../shared/MenuColapsavel/MenuColapsavel';
 
 interface PesquisaProcedimentosProps {
   pesquisar: (valoresPesquisa: PesquisaProcedimentosDto) => void;
@@ -16,20 +16,22 @@ export const PesquisaProcedimentos = ({ pesquisar }: PesquisaProcedimentosProps)
     <Formik initialValues={valoresIniciaisPesquisaProcedimentos} onSubmit={pesquisar}>
       {(propriedadesFormik) => {
         console.log(JSON.stringify(propriedadesFormik.values, null, 2));
+
+        const submeterFormulario = () => {
+          propriedadesFormik.handleSubmit();
+        };
+
         return (
           <View>
             <CampoPesquisa
               {...propriedadesFormik}
               nome="termoPesquisa"
               valor={propriedadesFormik.values.termoPesquisa}
+              submeterFormulario={submeterFormulario}
             />
-            <Filtros {...propriedadesFormik} />
-            <Botao
-              label="Submit"
-              acessar={() => {
-                propriedadesFormik.handleSubmit();
-              }}
-            />
+            <MenuColapsavel>
+              <Filtros {...propriedadesFormik} />
+            </MenuColapsavel>
           </View>
         );
       }}

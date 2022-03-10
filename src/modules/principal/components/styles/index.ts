@@ -14,7 +14,7 @@ export const ContainerPrincipal = styled(SafeAreaView)`
   padding: 0 ${Spacings.standardSpacing};
 `;
 
-export const ContainerPrecos = styled.View`
+export const ContainerCampos = styled.View`
   display: flex;
   flex-direction: row;
 `;
