@@ -15,7 +15,9 @@ export const Menu = styled(View)<MenuProps>`
   border: 1px solid ${Colors.gray4};
   border-radius: ${Spacings.tinySpacing};
   ${({ $aberto }) =>
-    $aberto && `border-bottom-left-radius: 0; border-bottom-right-radius: 0;`}
+    $aberto
+      ? `border-bottom-left-radius: 0; border-bottom-right-radius: 0;`
+      : `margin-bottom: ${Spacings.tinySpacing}`}
 `;
 
 export const MenuColapsavel = styled(View)<MenuProps>`

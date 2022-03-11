@@ -5,6 +5,7 @@ import { MensagemErro } from '../../MensagemErro/MensagemErro';
 import * as S from './styles';
 import React from 'react';
 import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
+import { Colors } from '../../../constants/Colors';
 
 interface CampoPesquisaProps extends FormikProps<PesquisaProcedimentosDto> {
   nome: string;
@@ -34,7 +35,7 @@ export const CampoPesquisa = ({
           placeholder="Pesquisar..."
         />
         <TouchableHighlight onPress={submeterFormulario}>
-          <Icon name="magnify" size={24} color={'#000000'} />
+          <Icon name="magnify" size={24} color={Colors.gray} />
         </TouchableHighlight>
       </S.Container>
       <MensagemErro nome={nome} />

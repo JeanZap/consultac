@@ -1,5 +1,5 @@
 import React from 'react';
-import { IntervaloNumerico } from '../../../models/dtos/IntervaloNumerico';
+import { TouchableWithoutFeedback, View } from 'react-native';
 import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
 import * as S from './styles/listedProcedure.style';
 
@@ -19,17 +19,24 @@ export const ProcedimentoListado = ({
     descontoPreco,
   },
 }: ProcedimentoListadoProps) => {
+  const exibirDetalhesProcedimento = () => {
+    console.log(titulo);
+    //TODO: Implementar corretamente
+  };
+
   return (
-    <S.Container>
-      <S.Title>{titulo}</S.Title>
-      <S.Clinic>{clinicaMedica}</S.Clinic>
-      <S.MedicName>{medico}</S.MedicName>
-      <S.MedicName>
-        R${preco} {descontoPreco && `- ${descontoPreco}% de desconto`}
-      </S.MedicName>
-      <S.Specialization>
-        {especializacao} {crm}-{ufCrm}
-      </S.Specialization>
-    </S.Container>
+    <TouchableWithoutFeedback onPress={exibirDetalhesProcedimento}>
+      <S.Container>
+        <S.Title>{titulo}</S.Title>
+        <S.Clinic>{clinicaMedica}</S.Clinic>
+        <S.MedicName>{medico}</S.MedicName>
+        <S.MedicName>
+          R${preco} {descontoPreco && `- ${descontoPreco}% de desconto`}
+        </S.MedicName>
+        <S.Specialization>
+          {especializacao} {crm}-{ufCrm}
+        </S.Specialization>
+      </S.Container>
+    </TouchableWithoutFeedback>
   );
 };

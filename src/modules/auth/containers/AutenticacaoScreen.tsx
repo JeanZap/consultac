@@ -8,7 +8,8 @@ export const AutenticacaoScreen = () => {
   const [senha, setSenha] = useState<string>('');
   const [textoErro, setTextoErro] = useState<string>('');
 
-  const acessarDesativado = senha.length < 8 || !usuario;
+  // const acessarDesativado = senha.length < 8 || !usuario;
+  const acessarDesativado = false;
 
   const navigation = useNavigation();
 
@@ -17,6 +18,9 @@ export const AutenticacaoScreen = () => {
   const definirSenha = (senha: string) => setSenha(senha);
 
   const acessar = () => {
+    //TODO: Remover
+    navigation.navigate('main', { screen: MainRoutes.Principal });
+
     setTextoErro('');
     const usuarioSenhaValidos = usuario && senha && senha.length >= 8;
     const usuarioOuSenhaVazios = !usuario || !senha;

@@ -1,4 +1,4 @@
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
 import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
 import { PesquisaProcedimentos } from './PesquisaProcedimentos';
@@ -19,11 +19,13 @@ export const Principal = ({ procedimentosListados, pesquisar }: PrincipalProps) 
         {procedimentosListados.map((procedimento, indice) => (
           <ProcedimentoListado key={indice} procedimento={procedimento} />
         ))}
-        {/*
-            Ao clique:
-            Marcar consulta (incluir uma agenda com horarios disponiveis), valores, 
-          detalhes da clinica, detalhes do medico,*/}
       </ScrollView>
     </S.ContainerPrincipal>
   );
 };
+
+        {/*
+          Ao clique:
+            Marcar consulta (incluir uma agenda com horarios disponiveis), valores, 
+            detalhes da clinica, detalhes do medico,
+        */}
