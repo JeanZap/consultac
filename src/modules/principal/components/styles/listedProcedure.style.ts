@@ -22,7 +22,7 @@ export const Clinic = styled.Text`
   margin: 0 0 ${Spacings.standardSpacing} 0;
 `;
 
-export const MedicName = styled.Text`
+export const NomeMedico = styled.Text`
   font-size: ${Spacings.standardSpacing};
   color: ${Colors.gray};
 `;

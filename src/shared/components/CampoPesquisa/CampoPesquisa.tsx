@@ -1,7 +1,7 @@
 import { FormikProps } from 'formik';
 import { TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { MensagemErro } from '../../MensagemErro/MensagemErro';
+import { MensagemErro } from '../../components/MensagemErro/MensagemErro';
 import * as S from './styles';
 import React from 'react';
 import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';

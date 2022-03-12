@@ -1,6 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { TouchableWithoutFeedback, View } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native';
 import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
+import { MainRoutes } from '../../../navigation/routes/main.routes';
 import * as S from './styles/listedProcedure.style';
 
 interface ProcedimentoListadoProps {
@@ -10,29 +12,26 @@ interface ProcedimentoListadoProps {
 export const ProcedimentoListado = ({
   procedimento: {
     titulo,
-    medico,
-    especializacao,
-    crm,
-    ufCrm,
+    medico: { nome, especializacao, crm, ufCrm },
     clinicaMedica,
     preco,
     descontoPreco,
   },
 }: ProcedimentoListadoProps) => {
-  const exibirDetalhesProcedimento = () => {
-    console.log(titulo);
-    //TODO: Implementar corretamente
-  };
+  const navigation = useNavigation();
+
+  const exibirDetalhesProcedimento = () =>
+    navigation.navigate('main', { screen: MainRoutes.DetalhesProcedimento });
 
   return (
     <TouchableWithoutFeedback onPress={exibirDetalhesProcedimento}>
       <S.Container>
         <S.Title>{titulo}</S.Title>
         <S.Clinic>{clinicaMedica}</S.Clinic>
-        <S.MedicName>{medico}</S.MedicName>
-        <S.MedicName>
+        <S.NomeMedico>{nome}</S.NomeMedico>
+        <S.NomeMedico>
           R${preco} {descontoPreco && `- ${descontoPreco}% de desconto`}
-        </S.MedicName>
+        </S.NomeMedico>
         <S.Specialization>
           {especializacao} {crm}-{ufCrm}
         </S.Specialization>

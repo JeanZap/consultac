@@ -5,7 +5,7 @@ import { CampoPesquisa } from '../../../shared/components/CampoPesquisa/CampoPes
 import React from 'react';
 import { Filtros } from './Filtros';
 import { valoresIniciaisPesquisaProcedimentos } from '../../../shared/constants';
-import { MenuColapsavel } from '../../../shared/MenuColapsavel/MenuColapsavel';
+import { MenuColapsavel } from '../../../shared/components/MenuColapsavel/MenuColapsavel';
 
 interface PesquisaProcedimentosProps {
   pesquisar: (valoresPesquisa: PesquisaProcedimentosDto) => void;

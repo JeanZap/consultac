@@ -1,6 +1,6 @@
 import { TextInput } from 'react-native-gesture-handler';
 import * as S from './styles';
-import { MensagemErro } from '../../../shared/MensagemErro/MensagemErro';
+import { MensagemErro } from '../../../shared/components/MensagemErro/MensagemErro';
 import React from 'react';
 
 interface CampoTextoProps {

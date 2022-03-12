@@ -7,25 +7,29 @@ import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/Proce
 const PROCEDIMENTO_LISTADO_MOCK: ProcedimentoListadoDTO[] = [
   {
     titulo: 'Exame exemplo',
-    medico: 'Jean Pereira',
-    especializacao: 'Ortopedista',
-    crm: '69666',
-    ufCrm: 'ES',
     clinicaMedica: 'Clinica Nostra',
     endereco: 'Rua sorocaba, N 03 Q 37, Marcilio de Noronha, Viana',
     preco: 65.56,
     descontoPreco: 33,
+    medico: {
+      nome: 'Jean Pereira',
+      especializacao: 'Ortopedista',
+      crm: '69666',
+      ufCrm: 'ES',
+    },
   },
   {
     titulo: 'Exame exemplo 2',
-    medico: 'Jean Pereira',
-    especializacao: 'Ortopedista',
-    crm: '69666',
-    ufCrm: 'ES',
     clinicaMedica: 'Clinica Nostra',
     endereco: 'Rua sorocaba, N 03 Q 37, Marcilio de Noronha, Viana',
     preco: 65.56,
     descontoPreco: 33,
+    medico: {
+      nome: 'Jean Pereira',
+      especializacao: 'Ortopedista',
+      crm: '69666',
+      ufCrm: 'ES',
+    },
   },
 ];
 

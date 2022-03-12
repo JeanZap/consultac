@@ -15,11 +15,6 @@ export const AuthStack = () => {
         name={AuthRoutes.Login}
         options={{ headerShown: false }}
       />
-      <AuthNavigator.Screen
-        component={PrincipalScreen}
-        name={MainRoutes.Principal}
-        options={{ headerShown: false }}
-      />
     </AuthNavigator.Navigator>
   );
 };

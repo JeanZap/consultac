@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import styled from 'styled-components';
-import { Colors } from '../../../constants/Colors';
-import { Spacings } from '../../../constants/Metrics';
+import { Colors } from '../../../../constants/Colors';
+import { Spacings } from '../../../../constants/Metrics';
 
 interface MenuProps {
   $aberto: boolean;

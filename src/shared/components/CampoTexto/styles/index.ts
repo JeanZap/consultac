@@ -1,6 +1,6 @@
 import { Text, TextInput } from 'react-native';
 import styled from 'styled-components';
-import { Colors } from '../../../constants/Colors';
+import { Colors } from '../../../../constants/Colors';
 
 export const Input = styled(TextInput)`
   padding: 16px;
