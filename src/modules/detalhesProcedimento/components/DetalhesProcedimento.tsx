@@ -1,9 +1,8 @@
-import { ScrollView, Text } from 'react-native';
-import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
-import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
-import * as S from './styles';
 import React from 'react';
+import { ScrollView, Text } from 'react-native';
+import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
 import { CartaoMedico } from '../../../shared/components/CartaoMedico/CartaoMedico';
+import * as S from './styles';
 
 interface PrincipalProps {
   procedimentosListados: ProcedimentoListadoDTO;

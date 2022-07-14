@@ -1,11 +1,11 @@
 import { Formik } from 'formik';
+import React from 'react';
 import { View } from 'react-native';
 import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
 import { CampoPesquisa } from '../../../shared/components/CampoPesquisa/CampoPesquisa';
-import React from 'react';
-import { Filtros } from './Filtros';
-import { valoresIniciaisPesquisaProcedimentos } from '../../../shared/constants';
 import { MenuColapsavel } from '../../../shared/components/MenuColapsavel/MenuColapsavel';
+import { valoresIniciaisPesquisaProcedimentos } from '../../../shared/constants';
+import { Filtros } from './Filtros';
 
 interface PesquisaProcedimentosProps {
   pesquisar: (valoresPesquisa: PesquisaProcedimentosDto) => void;
@@ -15,8 +15,6 @@ export const PesquisaProcedimentos = ({ pesquisar }: PesquisaProcedimentosProps)
   return (
     <Formik initialValues={valoresIniciaisPesquisaProcedimentos} onSubmit={pesquisar}>
       {(propriedadesFormik) => {
-        console.log(JSON.stringify(propriedadesFormik.values, null, 2));
-
         const submeterFormulario = () => {
           propriedadesFormik.handleSubmit();
         };

@@ -1,4 +1,3 @@
-import { Text, View } from 'react-native';
 import React from 'react';
 import { IMedico } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
 import * as S from './styles';
