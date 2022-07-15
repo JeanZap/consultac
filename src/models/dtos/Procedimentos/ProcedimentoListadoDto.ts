@@ -1,3 +1,5 @@
+import { IEndereco } from '../../IEndereco';
+
 export interface IMedico {
   nome: string;
   especializacao: string;
@@ -8,7 +10,7 @@ export interface IMedico {
 export interface ProcedimentoListadoDTO {
   titulo: string;
   clinicaMedica: string;
-  endereco: string;
+  endereco: IEndereco;
   preco: number;
   descontoPreco: number;
   medico: IMedico;

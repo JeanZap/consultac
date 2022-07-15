@@ -21,7 +21,7 @@ export const ProcedimentoListado = ({
   const navigation = useNavigation();
 
   const exibirDetalhesProcedimento = () =>
-    navigation.navigate('main', { screen: MainRoutes.DetalhesProcedimento });
+    navigation.navigate('main', { screen: MainRoutes.VisualizarProcedimento });
 
   return (
     <TouchableWithoutFeedback onPress={exibirDetalhesProcedimento}>

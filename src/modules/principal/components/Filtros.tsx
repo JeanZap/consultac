@@ -1,14 +1,14 @@
-import { FormikProps } from 'formik';
-import { Text } from 'react-native';
-import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
-import { CIDADES, ESPECIALIDADES_MEDICAS, ESTADOS } from '../../../shared/constants';
-import { mascaraReal } from '../../../shared/functions';
-import { CampoPreco } from './CampoPreco';
-import * as S from './styles';
-import React from 'react';
-import { CampoTexto } from './CampoTexto';
 import { Picker } from '@react-native-community/picker';
 import { ItemValue } from '@react-native-community/picker/typings/Picker';
+import { FormikProps } from 'formik';
+import React from 'react';
+import { Text } from 'react-native';
+import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
+import { CIDADES, ESPECIALIDADES_MEDICAS, ESTADOS } from '../../../constants/constants';
+import { mascaraReal } from '../../../shared/functions';
+import { CampoPreco } from './CampoPreco';
+import { CampoTexto } from './CampoTexto';
+import * as S from './styles';
 
 interface FiltrosProps extends FormikProps<PesquisaProcedimentosDto> {}
 
@@ -22,10 +22,10 @@ export const Filtros = ({
   },
   setFieldValue,
 }: FiltrosProps) => {
-  const precoMinimo = minimoPreco && mascaraReal(minimoPreco);
-  const precoMaximo = maximoPreco && mascaraReal(maximoPreco);
-  const avaliacaoMinimo = minimoAvaliacao && mascaraReal(minimoAvaliacao);
-  const avaliacaoMaximo = maximoAvaliacao && mascaraReal(maximoAvaliacao);
+  const precoMinimo = minimoPreco ? mascaraReal(minimoPreco) : '';
+  const precoMaximo = maximoPreco ? mascaraReal(maximoPreco) : '';
+  const avaliacaoMinimo = minimoAvaliacao ? mascaraReal(minimoAvaliacao) : '';
+  const avaliacaoMaximo = maximoAvaliacao ? mascaraReal(maximoAvaliacao) : '';
 
   const definirValorCampo = (nome: string) => (evento: any) => {
     const valor = evento.nativeEvent.text;
@@ -37,17 +37,17 @@ export const Filtros = ({
     setFieldValue(nome, valor);
   };
 
-  const definirEspecialidade = (especialidade: ItemValue) => {
+  function definirEspecialidade(especialidade: ItemValue) {
     setFieldValue('especialidade', especialidade);
-  };
+  }
 
-  const definirEstado = (estado: ItemValue) => {
+  function definirEstado(estado: ItemValue) {
     setFieldValue('estado', estado);
-  };
+  }
 
-  const definirCidade = (cidade: ItemValue) => {
+  function definirCidade(cidade: ItemValue) {
     setFieldValue('cidade', cidade);
-  };
+  }
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { IntervaloNumerico } from '../IntervaloNumerico';
+import { IntervaloNumerico } from '../../IntervaloNumerico';
 
 export interface PesquisaProcedimentosDto {
   termoPesquisa: string;

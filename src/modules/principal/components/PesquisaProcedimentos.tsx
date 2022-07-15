@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
 import { CampoPesquisa } from '../../../shared/components/CampoPesquisa/CampoPesquisa';
 import { MenuColapsavel } from '../../../shared/components/MenuColapsavel/MenuColapsavel';
-import { valoresIniciaisPesquisaProcedimentos } from '../../../shared/constants';
+import { valoresIniciaisPesquisaProcedimentos } from '../../../constants/constants';
 import { Filtros } from './Filtros';
 
 interface PesquisaProcedimentosProps {

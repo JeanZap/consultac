@@ -1,17 +1,17 @@
-import styled from 'styled-components';
-import { Colors } from '../../../../constants/Colors';
+import styled from 'styled-components/native';
+import { Colors } from '../../../../constants/colors';
 
 interface ContainerProps {
-  $secundario: boolean;
+  margem: string;
+  cor: string;
   $desativado: boolean;
 }
 
 export const ContainerBotao = styled.View<ContainerProps>`
-  //TODO: secundario
   padding: 8px;
-  margin: 16px 16px 0 16px;
-  border-radius: 16px;
+  border-radius: 8px;
   border: 1px #b2b2b2 solid;
-  background-color: #0000aa;
+  ${({ cor }) => cor && `background-color: ${cor};`}
   ${({ $desativado }) => $desativado && `background-color: ${Colors.gray9};`}
+  margin: ${({ margem }) => margem};
 `;

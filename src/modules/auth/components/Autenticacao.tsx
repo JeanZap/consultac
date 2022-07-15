@@ -31,7 +31,12 @@ export const Autenticacao = ({
       <CampoTexto label="Usuario" valor={usuario} definirValor={definirUsuario} />
       <CampoTexto label="Senha" valor={senha} tipo="senha" definirValor={definirSenha} />
       {exibirTextoErro && <S.Erro>{textoErro}</S.Erro>}
-      <Botao acessar={acessar} label="Acessar" desativado={acessarDesativado} />
+      <Botao
+        acessar={acessar}
+        label="Acessar"
+        margem="16px"
+        desativado={acessarDesativado}
+      />
     </SafeAreaView>
   );
 };

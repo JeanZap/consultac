@@ -1,41 +1,48 @@
 import React from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import { ProcedimentoListadoDTO } from '../../../models/dtos/Procedimentos/ProcedimentoListadoDto';
+import { Botao } from '../../../shared/components/BotaoPrimario/BotaoPrimario';
 import { CartaoMedico } from '../../../shared/components/CartaoMedico/CartaoMedico';
+import { Conteudo } from '../../../shared/components/Conteudo/conteudo';
+import { Subtitulo } from '../../../shared/components/Subtitulo/subtitulo';
+import { Titulo } from '../../../shared/components/Titulo/titulo';
 import * as S from './styles';
 
-interface PrincipalProps {
-  procedimentosListados: ProcedimentoListadoDTO;
+interface DetalhesProcedimentoProps {
+  procedimento: ProcedimentoListadoDTO;
+  iniciarAgendamento: () => void;
 }
 
-export const Principal = ({
-  procedimentosListados: {
+export const DetalhesProcedimento = ({
+  procedimento: {
     titulo,
     medico,
     clinicaMedica,
-    endereco,
+    endereco: { logradouro, bairro, cidade, estado, complemento, referencia, numero },
     preco,
     descontoPreco,
   },
-}: PrincipalProps) => {
+  iniciarAgendamento,
+}: DetalhesProcedimentoProps) => {
+  const exibirComplemento = !!complemento;
+  const exibirReferencia = !!referencia;
+
   return (
     <S.ContainerPrincipal>
       <ScrollView>
-        <Text>{titulo}</Text>
-        <Text>{clinicaMedica}</Text>
-        <Text>{endereco}</Text>
-        <Text>{preco}</Text>
-        <Text>{descontoPreco}</Text>
+        <Titulo>{titulo}</Titulo>
+        <Subtitulo>{clinicaMedica}</Subtitulo>
+        <Conteudo>
+          {logradouro} N {numero}, {bairro} - {cidade} {estado}
+        </Conteudo>
+        {exibirComplemento && <Conteudo>Complemento: {complemento}</Conteudo>}
+        {exibirReferencia && <Conteudo>Referência: {referencia}</Conteudo>}
+        <Conteudo margem="0 0 8px 0">
+          Preço: R$ {preco} {descontoPreco}%
+        </Conteudo>
         <CartaoMedico medico={medico} />
+        <Botao label="Agendar" margem="16px 0" acessar={iniciarAgendamento} />
       </ScrollView>
     </S.ContainerPrincipal>
   );
 };
-
-{
-  /*
-          Ao clique:
-            Marcar consulta (incluir uma agenda com horarios disponiveis), valores, 
-            detalhes da clinica, detalhes do medico,
-        */
-}

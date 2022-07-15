@@ -3,7 +3,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import * as S from './styles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Colors } from '../../../constants/Colors';
+import { Colors } from '../../../constants/colors';
 
 interface MenuColpsavelProps {
   children: JSX.Element;

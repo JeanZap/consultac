@@ -1,7 +1,20 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { PROCEDIMENTO_LISTADO_MOCK } from '../../../constants/mocks';
-import { Principal } from '../components/DetalhesProcedimento';
+import { MainRoutes } from '../../../navigation/routes/main.routes';
+import { DetalhesProcedimento } from '../components/DetalhesProcedimento';
 
 export const DetalhesProcedimentoScreen = () => {
-  return <Principal procedimentosListados={PROCEDIMENTO_LISTADO_MOCK} />;
+  const navigation = useNavigation();
+
+  function iniciarAgendamento() {
+    navigation.navigate('main', { screen: MainRoutes.AgendarAtendimento });
+  }
+
+  return (
+    <DetalhesProcedimento
+      procedimento={PROCEDIMENTO_LISTADO_MOCK}
+      iniciarAgendamento={iniciarAgendamento}
+    />
+  );
 };

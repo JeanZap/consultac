@@ -5,7 +5,7 @@ import { MensagemErro } from '../../components/MensagemErro/MensagemErro';
 import * as S from './styles';
 import React from 'react';
 import { PesquisaProcedimentosDto } from '../../../models/dtos/Procedimentos/PesquisaProcedimentosDto';
-import { Colors } from '../../../constants/Colors';
+import { Colors } from '../../../constants/colors';
 
 interface CampoPesquisaProps extends FormikProps<PesquisaProcedimentosDto> {
   nome: string;

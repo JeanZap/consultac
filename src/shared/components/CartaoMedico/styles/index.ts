@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Colors } from '../../../../constants/Colors';
-import { Metrics, Spacings } from '../../../../constants/Metrics';
+import styled from 'styled-components/native';
+import { Colors } from '../../../../constants/colors';
+import { Metrics, Spacings } from '../../../../constants/metrics';
 
 export const Container = styled.View`
   display: flex;
