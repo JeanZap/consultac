@@ -6,7 +6,7 @@ interface ConteudoCustomizadoProps {
 
 export const ConteudoCustomizado = styled.Text<ConteudoCustomizadoProps>`
   ${({ theme, margem }) => css`
-    font-size: ${theme.fonte.metricas.conteudo};
+    font-size: ${theme.fonte.metricas.conteudo}px;
     color: ${theme.fonte.cor.cinza1};
     margin: ${margem};
   `}

@@ -6,7 +6,7 @@ interface TituloProps {
 
 export const SubtituloCustomizado = styled.Text<TituloProps>`
   ${({ theme, margem }) => css`
-    font-size: ${theme.fonte.metricas.subtitulo};
+    font-size: ${theme.fonte.metricas.subtitulo}px;
     font-weight: ${theme.fonte.pesos.titulo};
     color: ${theme.fonte.cor.cinza1};
     margin: ${margem};

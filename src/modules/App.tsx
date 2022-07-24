@@ -19,6 +19,10 @@ export const App = () => {
       },
       pesos: { titulo: 700, conteudo: 500 },
     },
+    paddings: {
+      horizontalSafeAreaView: '16px',
+    },
+    margens: { margemInferior: '8px' },
   };
 
   return (

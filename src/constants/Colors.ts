@@ -12,5 +12,7 @@ export const Colors = {
 
   red: '#FF0000',
 
+  blue: '#00adf5',
+
   white: '#FFFFFF',
 } as const;

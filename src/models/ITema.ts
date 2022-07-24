@@ -4,4 +4,10 @@ export interface ITema {
     metricas: { titulo: number; subtitulo: number; conteudo: number; pequeno: number };
     pesos: { titulo: number; conteudo: number };
   };
+  paddings: {
+    horizontalSafeAreaView: string;
+  };
+  margens: {
+    margemInferior: string;
+  };
 }

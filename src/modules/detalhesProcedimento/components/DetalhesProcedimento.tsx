@@ -16,6 +16,7 @@ interface DetalhesProcedimentoProps {
 export const DetalhesProcedimento = ({
   procedimento: {
     titulo,
+    descricao,
     medico,
     clinicaMedica,
     endereco: { logradouro, bairro, cidade, estado, complemento, referencia, numero },
@@ -32,8 +33,9 @@ export const DetalhesProcedimento = ({
       <ScrollView>
         <Titulo>{titulo}</Titulo>
         <Subtitulo>{clinicaMedica}</Subtitulo>
+        <Conteudo>{descricao}</Conteudo>
         <Conteudo>
-          {logradouro} N {numero}, {bairro} - {cidade} {estado}
+          Endereço: {logradouro} N {numero}, {bairro} - {cidade} {estado}
         </Conteudo>
         {exibirComplemento && <Conteudo>Complemento: {complemento}</Conteudo>}
         {exibirReferencia && <Conteudo>Referência: {referencia}</Conteudo>}

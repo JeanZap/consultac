@@ -9,6 +9,7 @@ export interface IMedico {
 
 export interface ProcedimentoListadoDTO {
   titulo: string;
+  descricao: string;
   clinicaMedica: string;
   endereco: IEndereco;
   preco: number;

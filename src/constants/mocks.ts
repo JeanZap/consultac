@@ -1,7 +1,8 @@
 import { ProcedimentoListadoDTO } from '../models/dtos/Procedimentos/ProcedimentoListadoDto';
 
 export const PROCEDIMENTO_LISTADO_MOCK: ProcedimentoListadoDTO = {
-  titulo: 'Exame exemplo asdf',
+  titulo: 'Exame exemplo',
+  descricao: 'Exame inclui muitas coisas diferentes hehehe hahaha hohoho',
   clinicaMedica: 'Clinica Nostra',
   endereco: {
     complemento: 'Quadra 37',
@@ -26,6 +27,7 @@ export const PROCEDIMENTO_LISTADO_MOCK: ProcedimentoListadoDTO = {
 export const PROCEDIMENTOS_LISTADOS_MOCK: ProcedimentoListadoDTO[] = [
   {
     titulo: 'Exame exemplo',
+    descricao: 'Exame inclui muitas coisas diferentes hehehe hahaha hohoho',
     clinicaMedica: 'Clinica Nostra',
     endereco: {
       complemento: 'Quadra 37',
@@ -48,6 +50,7 @@ export const PROCEDIMENTOS_LISTADOS_MOCK: ProcedimentoListadoDTO[] = [
   },
   {
     titulo: 'Exame exemplo 2',
+    descricao: 'Exame inclui muitas coisas diferentes hehehe hahaha hohoho',
     clinicaMedica: 'Clinica Nostra',
     endereco: {
       complemento: 'Quadra 37',
@@ -68,4 +71,17 @@ export const PROCEDIMENTOS_LISTADOS_MOCK: ProcedimentoListadoDTO[] = [
       ufCrm: 'ES',
     },
   },
+];
+
+export const HORARIOS_DISPONIVEIS_MOCK = [
+  '08:00',
+  '08:30',
+  '09:00',
+  '09:30',
+  '10:00',
+  '10:30',
+  '11:00',
+  '11:30',
+  '12:00',
+  '12:30',
 ];
