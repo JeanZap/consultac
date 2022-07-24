@@ -8,7 +8,7 @@ export const DetalhesProcedimentoScreen = () => {
   const navigation = useNavigation();
 
   function iniciarAgendamento() {
-    navigation.navigate('main', { screen: MainRoutes.AgendarAtendimento });
+    navigation.navigate('main', { screen: MainRoutes.AgendarDia });
   }
 
   return (

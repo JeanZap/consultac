@@ -1,5 +1,6 @@
 export enum MainRoutes {
   Principal = 'Principal',
   VisualizarProcedimento = 'VisualizarProcedimento',
-  AgendarAtendimento = 'AgendarAtendimento',
+  AgendarDia = 'AgendarDia',
+  AgendarHora = 'AgendarHora',
 }

@@ -16,7 +16,6 @@ export const MenuColapsavel = ({ children }: MenuColpsavelProps) => {
 
   const alternarMenu = () => {
     setAberto(!aberto);
-    console.log(aberto);
   };
 
   return (

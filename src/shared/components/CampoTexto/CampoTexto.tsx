@@ -14,9 +14,9 @@ export const CampoTexto = ({ label, valor, tipo, definirValor }: CampoTextoProps
   const tipoSenha = tipo === 'senha';
 
   return (
-    <View>
+    <>
       {exibirLabel && <S.Texto>{label}</S.Texto>}
       <S.Input secureTextEntry={tipoSenha} value={valor} onChangeText={definirValor} />
-    </View>
+    </>
   );
 };

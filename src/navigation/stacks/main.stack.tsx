@@ -1,6 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { AgendarAtendimentoScreen } from '../../modules/agendamento/agendarAtendimento/containers/agendarAtendimentoScreen';
+import { AgendarDiaScreen } from '../../modules/agendamento/agendarAtendimento/containers/agendarDiaScreen';
+import { AgendarHoraScreen } from '../../modules/agendamento/agendarAtendimento/containers/agendarHoraScreen';
 import { DetalhesProcedimentoScreen } from '../../modules/detalhesProcedimento/containers/DetalhesProcedimentoScreen';
 import { PrincipalScreen } from '../../modules/principal/containers/PrincipalScreen';
 import { MainRoutes } from '../routes/main.routes';
@@ -21,8 +22,13 @@ export const MainStack = () => {
         options={{ headerShown: false }}
       />
       <Screen
-        component={AgendarAtendimentoScreen}
-        name={MainRoutes.AgendarAtendimento}
+        component={AgendarDiaScreen}
+        name={MainRoutes.AgendarDia}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        component={AgendarHoraScreen}
+        name={MainRoutes.AgendarHora}
         options={{ headerShown: false }}
       />
     </Navigator>

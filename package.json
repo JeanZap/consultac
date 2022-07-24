@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android:clean": "cd android && ./gradlew clean",
     "ios": "react-native run-ios",
-    "ios-pod-install": "cd ios && pod install && cd ../ && react-native run-ios",
+    "ios:pod": "cd ios && pod install",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
@@ -19,6 +20,7 @@
     "formik": "^2.2.9",
     "react": "17.0.2",
     "react-native": "0.66.4",
+    "react-native-calendars": "^1.1285.0",
     "react-native-gesture-handler": "^2.1.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
