@@ -33,7 +33,7 @@ export const DetalhesProcedimento = ({
       <ScrollView>
         <Titulo>{titulo}</Titulo>
         <Subtitulo>{clinicaMedica}</Subtitulo>
-        <Conteudo>{descricao}</Conteudo>
+        <Conteudo>Descricao: {descricao}</Conteudo>
         <Conteudo>
           Endereço: {logradouro} N {numero}, {bairro} - {cidade} {estado}
         </Conteudo>
