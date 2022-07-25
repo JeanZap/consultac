@@ -1,3 +1,4 @@
+import { AgendamentoDTO } from '../models/dtos/AgendamentoDto';
 import { ProcedimentoListadoDTO } from '../models/dtos/Procedimentos/ProcedimentoListadoDto';
 
 export const PROCEDIMENTO_LISTADO_MOCK: ProcedimentoListadoDTO = {
@@ -73,7 +74,7 @@ export const PROCEDIMENTOS_LISTADOS_MOCK: ProcedimentoListadoDTO[] = [
   },
 ];
 
-export const HORARIOS_DISPONIVEIS_MOCK = [
+export const HORARIOS_DISPONIVEIS_MOCK: string[] = [
   '08:00',
   '08:30',
   '09:00',
@@ -85,3 +86,8 @@ export const HORARIOS_DISPONIVEIS_MOCK = [
   '12:00',
   '12:30',
 ];
+
+export const AGENDAMENTO_MOCK: AgendamentoDTO = {
+  data: '22/10/2022',
+  horario: '12:30',
+};

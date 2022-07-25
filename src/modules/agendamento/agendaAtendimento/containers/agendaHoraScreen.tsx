@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { HORARIOS_DISPONIVEIS_MOCK } from '../../../../constants/mocks';
 import { MainRoutes } from '../../../../navigation/routes/main.routes';
-import { AgendarHora } from '../components/agendarHora';
+import { AgendarHora } from '../components/agendaHora';
 
 export function AgendarHoraScreen() {
   const navigation = useNavigation();
@@ -12,7 +12,7 @@ export function AgendarHoraScreen() {
   const definirHorarioSelecionado = (horario: string) => setHorarioSelecionado(horario);
 
   const seguirParaProxima = () =>
-    navigation.navigate('main', { screen: MainRoutes.Pagamento });
+    navigation.navigate('main', { screen: MainRoutes.ConfirmarAgendamento });
 
   return (
     <AgendarHora

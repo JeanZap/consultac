@@ -19,7 +19,7 @@ export const AutenticacaoScreen = () => {
 
   const acessar = () => {
     //TODO: Remover
-    navigation.navigate('main', { screen: MainRoutes.Principal });
+    navigation.navigate('main', { screen: MainRoutes.Inicio });
 
     setTextoErro('');
     const usuarioSenhaValidos = usuario && senha && senha.length >= 8;
@@ -30,7 +30,7 @@ export const AutenticacaoScreen = () => {
     } else if (senhaCurta) {
       setTextoErro('A senha deve ter ao menos 8 digitos.');
     } else if (usuarioSenhaValidos) {
-      navigation.navigate('main', { screen: MainRoutes.Principal });
+      navigation.navigate('main', { screen: MainRoutes.Inicio });
     }
   };
 

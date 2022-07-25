@@ -38,7 +38,7 @@ export function AgendarHora({
         })}
       </S.ContainerHorarios>
       <Botao
-        label={'Proximo'}
+        label={'Agendar'}
         desativado={proximoDesabilitado}
         acessar={seguirParaProxima}
       />

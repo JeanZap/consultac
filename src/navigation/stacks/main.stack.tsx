@@ -1,7 +1,9 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { AgendarDiaScreen } from '../../modules/agendamento/agendarAtendimento/containers/agendarDiaScreen';
-import { AgendarHoraScreen } from '../../modules/agendamento/agendarAtendimento/containers/agendarHoraScreen';
+import { AgendaConfirmarScreen } from '../../modules/agendamento/agendaAtendimento/containers/agendaConfirmarScreen';
+import { AgendarDiaScreen } from '../../modules/agendamento/agendaAtendimento/containers/agendaDiaScreen';
+import { AgendarHoraScreen } from '../../modules/agendamento/agendaAtendimento/containers/agendaHoraScreen';
+import { AtendimentosAgendados } from '../../modules/agendamento/atendimentosAgendados/containers/atendimentosAgendados';
 import { DetalhesProcedimentoScreen } from '../../modules/detalhesProcedimento/containers/DetalhesProcedimentoScreen';
 import { PrincipalScreen } from '../../modules/principal/containers/PrincipalScreen';
 import { MainRoutes } from '../routes/main.routes';
@@ -10,10 +12,10 @@ const { Navigator, Screen } = createStackNavigator();
 
 export const MainStack = () => {
   return (
-    <Navigator initialRouteName={MainRoutes.Principal}>
+    <Navigator initialRouteName={MainRoutes.Inicio}>
       <Screen
         component={PrincipalScreen}
-        name={MainRoutes.Principal}
+        name={MainRoutes.Inicio}
         options={{ headerShown: false }}
       />
       <Screen
@@ -29,6 +31,16 @@ export const MainStack = () => {
       <Screen
         component={AgendarHoraScreen}
         name={MainRoutes.AgendarHora}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        component={AgendaConfirmarScreen}
+        name={MainRoutes.ConfirmarAgendamento}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        component={AtendimentosAgendados}
+        name={MainRoutes.AtendimentosAgendados}
         options={{ headerShown: false }}
       />
     </Navigator>
