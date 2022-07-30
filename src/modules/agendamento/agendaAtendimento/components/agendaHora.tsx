@@ -26,10 +26,11 @@ export function AgendarHora({
       <Titulo>Agendamento</Titulo>
       <Conteudo>Escolha a data desejada</Conteudo>
       <S.ContainerHorarios>
-        {horariosDisponiveis.map((horario) => {
+        {horariosDisponiveis.map((horario, index) => {
           const selecionado = horario === horarioSelecionado;
           return (
             <Horario
+              key={index}
               horario={horario}
               selecionado={selecionado}
               selecionarHorario={definirHorarioSelecionado}

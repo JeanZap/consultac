@@ -9,7 +9,7 @@ const { Navigator, Screen } = createStackNavigator();
 export const AppStack = () => {
   return (
     <NavigationContainer>
-      <Navigator initialRouteName="auth">
+      <Navigator initialRouteName="main">
         <Screen component={AuthStack} name="auth" options={{ headerShown: false }} />
         <Screen component={MainStack} name="main" options={{ headerShown: false }} />
       </Navigator>

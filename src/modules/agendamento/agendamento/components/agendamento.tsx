@@ -1,6 +1,5 @@
 import React from 'react';
 import { ProcedimentoAgendadoDTO } from '../../../../models/dtos/ProcedimentoAgendadoDto';
-import { Botao } from '../../../../shared/components/BotaoPrimario/BotaoPrimario';
 import { CartaoMedico } from '../../../../shared/components/CartaoMedico/CartaoMedico';
 import { ContainerSafeArea } from '../../../../shared/components/Container/Container';
 import { Conteudo } from '../../../../shared/components/Conteudo/conteudo';
@@ -10,10 +9,9 @@ import { calcularDesconto } from '../../../../shared/functions';
 
 interface AgendaConfirmarProps {
   agendamento: ProcedimentoAgendadoDTO;
-  confirmar: () => void;
 }
 
-export function AgendaConfirmar({
+export function Agendamento({
   agendamento: {
     titulo,
     descricao,
@@ -25,7 +23,6 @@ export function AgendaConfirmar({
     data,
     horario,
   },
-  confirmar,
 }: AgendaConfirmarProps) {
   const exibirComplemento = !!complemento;
   const exibirReferencia = !!referencia;
@@ -52,7 +49,6 @@ export function AgendaConfirmar({
       <Conteudo>Desconto: {descontoPreco}%</Conteudo>
       <Conteudo margem="0 0 8px 0">Valor descontado: R$ {valorDescontado}</Conteudo>
       <CartaoMedico medico={medico} />
-      <Botao label={'Confimar'} acessar={confirmar} margem="8px 0 0 0" />
     </ContainerSafeArea>
   );
 }

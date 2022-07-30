@@ -3,7 +3,8 @@ import React from 'react';
 import { AgendaConfirmarScreen } from '../../modules/agendamento/agendaAtendimento/containers/agendaConfirmarScreen';
 import { AgendarDiaScreen } from '../../modules/agendamento/agendaAtendimento/containers/agendaDiaScreen';
 import { AgendarHoraScreen } from '../../modules/agendamento/agendaAtendimento/containers/agendaHoraScreen';
-import { AtendimentosAgendados } from '../../modules/agendamento/atendimentosAgendados/containers/atendimentosAgendados';
+import { AgendamentoScreen } from '../../modules/agendamento/agendamento/containers/agendamentoScreen';
+import { AtendimentosAgendadosScreen } from '../../modules/agendamento/atendimentosAgendados/containers/atendimentosAgendadosScreen';
 import { DetalhesProcedimentoScreen } from '../../modules/detalhesProcedimento/containers/DetalhesProcedimentoScreen';
 import { PrincipalScreen } from '../../modules/principal/containers/PrincipalScreen';
 import { MainRoutes } from '../routes/main.routes';
@@ -39,8 +40,13 @@ export const MainStack = () => {
         options={{ headerShown: false }}
       />
       <Screen
-        component={AtendimentosAgendados}
+        component={AtendimentosAgendadosScreen}
         name={MainRoutes.AtendimentosAgendados}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        component={AgendamentoScreen}
+        name={MainRoutes.Agendamento}
         options={{ headerShown: false }}
       />
     </Navigator>
